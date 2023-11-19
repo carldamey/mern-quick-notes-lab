@@ -3,7 +3,7 @@ const path = require("path")
 const favicon = require("serve-favicon")
 const logger = require("morgan")
 
-// Always require and config nrear the top
+// Always require and config near the top
 require("dotenv").config()
 
 // Connect to the database
