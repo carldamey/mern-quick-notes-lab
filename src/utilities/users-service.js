@@ -31,3 +31,7 @@ export async function login(credentials) {
     localStorage.setItem("token", token)
     return getUser()
 }
+
+export async function checkToken() {
+	alert("clicked")
+}
