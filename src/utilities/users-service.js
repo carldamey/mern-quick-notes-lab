@@ -7,7 +7,7 @@ export async function signUp(userData) {
 }
 
 export function logout() {
-    localStorage.removeItem("token")
+	localStorage.removeItem("token")
 }
 
 export function getToken() {
@@ -18,21 +18,20 @@ export function getToken() {
 		localStorage.removeItem("token")
 		return null
 	}
-    return token
+	return token
 }
 
 export function getUser() {
-    const token = getToken()
-    return token ? JSON.parse(atob(token.split(".")[1])).user : null
+	const token = getToken()
+	return token ? JSON.parse(atob(token.split(".")[1])).user : null
 }
 
 export async function login(credentials) {
 	const token = await usersAPI.login(credentials)
-    localStorage.setItem("token", token)
-    return getUser()
+	localStorage.setItem("token", token)
+	return getUser()
 }
 
 export async function checkToken() {
-	return usersAPI.checkToken()
-	.then(dateStr => new Date(dateStr))
+	return usersAPI.checkToken().then((dateStr) => new Date(dateStr))
 }
